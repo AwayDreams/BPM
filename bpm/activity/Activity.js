@@ -1,5 +1,3 @@
-import createArrow from "./Arrow.js";
-
 export default class Activity {
   position = {
     x: 1,

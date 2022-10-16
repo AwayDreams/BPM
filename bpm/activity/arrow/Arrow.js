@@ -10,6 +10,7 @@ export default class Arrow {
         this._setPathString();
         this.group = this._createGroup();
         this.svg.svg.append(this.group);
+        this.isConnected = false;
         return this;
     }
 
@@ -40,6 +41,10 @@ export default class Arrow {
         return path;
     }
 
+    _openMenu(){
+        
+    }
+
     _setPathString(){
         let curve1 = {x: this.finalPoint.x, y: this.initialPoint.y}
         let curve2 = {x: this.initialPoint.x, y: this.finalPoint.y}
@@ -49,6 +54,7 @@ export default class Arrow {
     _setPointerPosition(){
         this.pointer.setAttribute('cx', this.finalPoint.x);
         this.pointer.setAttribute('cy', this.finalPoint.y);
+        
     }
 
     _createPointer(){
@@ -61,6 +67,9 @@ export default class Arrow {
         circle.setAttribute('fill', 'red');
         circle.addEventListener('mousedown', (e) => {
             const mouseMoveHandler = (e) => {
+                if(this.isConnected){
+                    return;
+                }
                 let mouseMovement = {
                     x: e.movementX,
                     y: e.movementY
