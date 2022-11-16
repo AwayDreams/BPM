@@ -1,6 +1,6 @@
 package com.ecmprojectbackend.domain.activityType
 
-import com.ecmprojectbackend.domain.group.Group
+import com.ecmprojectbackend.domain.groupPermission.GroupPermission
 import com.ecmprojectbackend.domain.page.Page
 
 data class ActivityType (
@@ -9,5 +9,5 @@ data class ActivityType (
     val type: String,
     val page: Page?,
     val process: Process?,
-    val activityGroups: List<Group>?
+    val activityGroupPermissions: List<GroupPermission>?
         )

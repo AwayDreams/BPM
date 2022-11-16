@@ -5,6 +5,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.15.RELEASE"
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.spring") version "1.6.21"
+	id("org.flywaydb.flyway") version "6.4.4"
 }
 
 group = "com.ecm"
@@ -16,10 +17,16 @@ repositories {
 }
 
 dependencies {
+	implementation(kotlin("script-runtime"))
 	implementation("org.springframework.boot:spring-boot-starter")
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("mysql:mysql-connector-java:8.0.12")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	runtimeOnly("org.flywaydb:flyway-core")
 }
 
 tasks.withType<KotlinCompile> {
@@ -31,4 +38,19 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+tasks {
+
+	register("bootRunLoc") {
+		dependsOn(":web-api:bootRunLoc")
+	}
+}
+
+flyway {
+	ignorePendingMigrations = true
+	url = "jdbc:mysql://localhost:3306/ecm?useTimezone=true&serverTimezone=UTC"
+	user = "dev1"
+	password = "dev1"
+	locations = arrayOf("filesystem:src/main/kotlin/com/ecmprojectbackend/infrastructure/resources/db/migration")
 }

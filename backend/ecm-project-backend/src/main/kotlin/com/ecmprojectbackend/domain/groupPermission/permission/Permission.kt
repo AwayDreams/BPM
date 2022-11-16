@@ -1,4 +1,4 @@
-package com.ecmprojectbackend.domain.group.permission
+package com.ecmprojectbackend.domain.groupPermission.permission
 
 data class Permission (
     val id: Long?,
