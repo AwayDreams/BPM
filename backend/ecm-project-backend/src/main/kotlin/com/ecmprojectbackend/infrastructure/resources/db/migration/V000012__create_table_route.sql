@@ -1,5 +1,5 @@
 create table if not exists route (
-    id              INT     NOT NULL     primary key,
+    id              INT     NOT NULL    AUTO_INCREMENT     primary key,
     name            TEXT    NULL,
     name_key        TEXT    NULL,
     content         TEXT    NULL,

@@ -1,5 +1,5 @@
 create table if not exists process (
-    id          INT     NOT NULL     primary key,
+    id          INT     NOT NULL    AUTO_INCREMENT     primary key,
     datatype    INT     NOT NULL,
     name        TEXT    NULL,
     content     TEXT    NULL,

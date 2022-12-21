@@ -1,5 +1,5 @@
 create table if not exists activitytype (
-    id          INT     NOT NULL     primary key,
+    id          INT     NOT NULL    AUTO_INCREMENT     primary key,
     name        TEXT    NULL,
     type        TEXT    NULL,
     page        INT     NULL,
