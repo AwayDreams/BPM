@@ -6,6 +6,6 @@ data class User (
     val id: Long?,
     val user: String?,
     val password: String?,
-    val Name: String,
+    val name: String,
     val groupPermissions: List<GroupPermission>?
 )

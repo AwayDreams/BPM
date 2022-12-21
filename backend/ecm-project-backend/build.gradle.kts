@@ -27,6 +27,8 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 
 	runtimeOnly("org.flywaydb:flyway-core")
+
+	implementation("org.flywaydb:flyway-mysql")
 }
 
 tasks.withType<KotlinCompile> {
@@ -49,7 +51,7 @@ tasks {
 
 flyway {
 	ignorePendingMigrations = true
-	url = "jdbc:mysql://localhost:3306/ecm?useTimezone=true&serverTimezone=UTC"
+	url = "jdbc:mysql://localhost:3306/ecm?useTimezone=true&serverTimezone=UTC&useSSL=false"
 	user = "dev1"
 	password = "dev1"
 	locations = arrayOf("filesystem:src/main/kotlin/com/ecmprojectbackend/infrastructure/resources/db/migration")
