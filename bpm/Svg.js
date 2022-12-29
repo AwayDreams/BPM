@@ -26,7 +26,11 @@ export default class Svg {
     }
 
     createArrow(initialPosition, finalPosition) {
-        var arrow = new Arrow(initialPosition, finalPosition, this, this.document);
+        const deleteArrow = (arrow) => {
+            this.arrows.pop(arrow);
+            arrow.group.remove();
+        }
+        var arrow = new Arrow(initialPosition, finalPosition, this, this.documen, deleteArrow);
         this.arrows.push(arrow);
         var connectorToBeConnected = null;
         var activityToBeConnected = null;

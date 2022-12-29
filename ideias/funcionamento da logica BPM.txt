@@ -1,0 +1,9 @@
+Primeiro inicia um Processo no front
+ - save novo processo com (processTypeId e activityTypeId)
+ - recupera todos os fieldtypes do datatype e cria os fields com (fieldTypeId e ProcessId)
+
+Ao selecionar uma Route
+ - salva os respectivos valores dos fields
+ - o ActivityType do Process torna-se o mesmo da Route selecionada
+
+caso ActivityTypeId do Process seja null, processo finalizado!

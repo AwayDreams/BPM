@@ -1,7 +1,7 @@
 package com.ecmprojectbackend.infrastructure.persistence.jpa.route.entity
 
-import com.ecmprojectbackend.domain.activity.Activity
-import com.ecmprojectbackend.infrastructure.persistence.jpa.activity.entity.ActivityEntity
+
+import com.ecmprojectbackend.infrastructure.persistence.jpa.activityType.entity.ActivityTypeEntity
 import javax.persistence.*
 
 @Entity
@@ -9,7 +9,7 @@ import javax.persistence.*
 data class RouteEntity (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long?,
+    val id: String?,
     @Column
     val name: String,
     @Column
@@ -18,8 +18,8 @@ data class RouteEntity (
     val content: String,
     @ManyToOne
     @JoinColumn(name = "activity")
-    val activity: ActivityEntity?,
+    val activity: ActivityTypeEntity?,
     @ManyToOne
     @JoinColumn(name = "next_activity")
-    val nextActivity: ActivityEntity?
+    val nextActivity: ActivityTypeEntity?
         )

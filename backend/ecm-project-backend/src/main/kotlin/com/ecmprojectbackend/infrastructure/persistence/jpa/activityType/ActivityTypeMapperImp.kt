@@ -4,14 +4,14 @@ import com.ecmprojectbackend.domain.activityType.ActivityType
 import com.ecmprojectbackend.infrastructure.persistence.jpa.activityType.entity.ActivityTypeEntity
 import com.ecmprojectbackend.infrastructure.persistence.jpa.gruopPermission.GroupPermissionMapper
 import com.ecmprojectbackend.infrastructure.persistence.jpa.page.PageMapper
-import com.ecmprojectbackend.infrastructure.persistence.jpa.process.ProcessMapper
+import com.ecmprojectbackend.infrastructure.persistence.jpa.processType.ProcessTypeMapper
 import org.springframework.stereotype.Service
 
 @Service
 class ActivityTypeMapperImp(
     private val groupPermissionMapper: GroupPermissionMapper,
     private val pageMapper: PageMapper,
-    private val processMapper: ProcessMapper,
+    private val processTypeMapper: ProcessTypeMapper,
 ) : ActivityTypeMapper {
     override fun fromModel(model: ActivityType): ActivityTypeEntity {
         return  ActivityTypeEntity(
@@ -19,7 +19,7 @@ class ActivityTypeMapperImp(
             model.type,
             model.name,
             model.page?.let { pageMapper.fromModel(it) },
-            model.process?.let { processMapper.fromModel(it) },
+            model.processType?.let { processTypeMapper.fromModel(it) },
             model.activityGroupPermissions?.let { it.map { groupPermissionMapper.fromModel(it) } }
        )
     }
@@ -30,7 +30,7 @@ class ActivityTypeMapperImp(
             entity.type,
             entity.name,
             entity.page?.let { pageMapper.fromEntity(it) },
-            entity.process?.let { processMapper.fromEntity(it) },
+            entity.processType?.let { processTypeMapper.fromEntity(it) },
             entity.activityGroupPermissions?.let { it.map { groupPermissionMapper.fromEntity(it) } }
         )
     }

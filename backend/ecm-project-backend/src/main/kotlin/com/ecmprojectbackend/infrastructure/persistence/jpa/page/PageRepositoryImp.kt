@@ -12,4 +12,12 @@ class PageRepositoryImp(
     override fun save(page: Page): Page {
         return pageMapper.fromEntity(pagePersistenceRepository.save(pageMapper.fromModel(page)))
     }
+
+    override fun getAll(): List<Page> {
+        return pagePersistenceRepository.findAll().map { pageMapper.fromEntity(it) }
+    }
+
+    override fun remove(page: Page) {
+        pagePersistenceRepository.delete(pageMapper.fromModel(page))
+    }
 }

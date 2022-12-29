@@ -9,14 +9,14 @@ class DataTypeMapperImp : DataTypeMapper {
     override fun fromModel(model: DataType): DataTypeEntity {
         return DataTypeEntity(
             model.id,
-            model.Name
+            model.name
         )
     }
 
     override fun fromEntity(entity: DataTypeEntity): DataType {
         return DataType(
             entity.id,
-            entity.Name
+            entity.name
         )
     }
 }

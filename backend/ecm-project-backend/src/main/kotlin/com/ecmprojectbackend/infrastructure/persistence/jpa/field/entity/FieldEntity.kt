@@ -1,8 +1,8 @@
 package com.ecmprojectbackend.infrastructure.persistence.jpa.field.entity
 
-import com.ecmprojectbackend.domain.activity.Activity
-import com.ecmprojectbackend.infrastructure.persistence.jpa.activity.entity.ActivityEntity
+import com.ecmprojectbackend.infrastructure.persistence.jpa.activityType.entity.ActivityTypeEntity
 import com.ecmprojectbackend.infrastructure.persistence.jpa.fieldType.entity.FieldTypeEntity
+import com.ecmprojectbackend.infrastructure.persistence.jpa.process.entity.ProcessEntity
 import javax.persistence.*
 
 @Entity
@@ -16,8 +16,8 @@ data class FieldEntity(
     @JoinColumn(name = "[fieldtype]")
     val fieldType: FieldTypeEntity?,
     @ManyToOne
-    @JoinColumn(name = "activity")
-    val activity: ActivityEntity?,
+    @JoinColumn(name = "process")
+    val process: ProcessEntity?,
     @Column
     val value: String,
         )

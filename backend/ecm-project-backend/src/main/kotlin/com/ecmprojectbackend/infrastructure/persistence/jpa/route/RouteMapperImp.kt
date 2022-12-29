@@ -1,13 +1,13 @@
 package com.ecmprojectbackend.infrastructure.persistence.jpa.route
 
 import com.ecmprojectbackend.domain.route.Route
-import com.ecmprojectbackend.infrastructure.persistence.jpa.activity.ActivityMapper
+import com.ecmprojectbackend.infrastructure.persistence.jpa.activityType.ActivityTypeMapper
 import com.ecmprojectbackend.infrastructure.persistence.jpa.route.entity.RouteEntity
 import org.springframework.stereotype.Service
 
 @Service
 class RouteMapperImp(
-    private val activityMapper: ActivityMapper
+    private val activityMapper: ActivityTypeMapper
 ) : RouteMapper {
     override fun fromModel(model: Route): RouteEntity {
         return RouteEntity(

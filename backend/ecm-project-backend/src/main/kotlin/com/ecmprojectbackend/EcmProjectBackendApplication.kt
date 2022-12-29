@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan
 import org.springframework.boot.runApplication
 
-//@ConfigurationPropertiesScan("com.ecmprojectbackend.configure")
+@ConfigurationPropertiesScan("com.ecmprojectbackend.configure")
 @SpringBootApplication(
 	scanBasePackages = [
 		"com.ecmprojectbackend.domain",

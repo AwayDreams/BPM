@@ -10,5 +10,7 @@ data class DataTypeEntity (
     @Column
     val id: Long?,
     @Column
-    val Name: String
-        )
+    val name: String?
+        ){
+    constructor() : this(null, null)
+}

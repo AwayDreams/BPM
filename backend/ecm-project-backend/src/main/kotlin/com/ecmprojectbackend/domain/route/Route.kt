@@ -1,12 +1,12 @@
 package com.ecmprojectbackend.domain.route
 
-import com.ecmprojectbackend.domain.activity.Activity
+import com.ecmprojectbackend.domain.activityType.ActivityType
 
 data class Route (
-    val id: Long?,
+    val id: String?,
     val name: String,
     val nameKey: String,
     val content: String,
-    val activity: Activity?,
-    val nextActivity: Activity?
+    val activity: ActivityType?,
+    val nextActivity: ActivityType?
         )

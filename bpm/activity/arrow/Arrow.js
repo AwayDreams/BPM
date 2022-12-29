@@ -1,6 +1,6 @@
 export default class Arrow { 
 
-    constructor(initialPoint, finalPoint, svg, document){
+    constructor(initialPoint, finalPoint, svg, document, deleteArrow){
         this.document = document;
         this.svg = svg;
         this.initialPoint = initialPoint;
@@ -11,6 +11,7 @@ export default class Arrow {
         this.group = this._createGroup();
         this.svg.svg.append(this.group);
         this.isConnected = false;
+        this.deleteArrow = deleteArrow;
         return this;
     }
 
@@ -37,12 +38,23 @@ export default class Arrow {
 
     _createPath(){
         let path = document.createElementNS('http://www.w3.org/2000/svg','path');
+        path.addEventListener('click', () => {this._openMenu()})
+        path.setAttribute('stroke', 'black')
         path.setAttribute('class', 'arrow')
         return path;
     }
 
     _openMenu(){
-        
+        this.path.setAttribute('stroke', 'red');
+        let closeButton = document.createElementNS('http://www.w3.org/2000/svg','circle');
+        closeButton.setAttribute('cx', this.finalPoint.x); // 130. 20
+        closeButton.setAttribute('cy', this.finalPoint.y);
+        closeButton.setAttribute('r', 10);
+        closeButton.setAttribute('stroke', "gray");
+        closeButton.setAttribute('stroke-width', '1');
+        closeButton.setAttribute('fill', 'blue');
+        this.group.appendChild(closeButton);
+        //this.deleteArrow(this);
     }
 
     _setPathString(){

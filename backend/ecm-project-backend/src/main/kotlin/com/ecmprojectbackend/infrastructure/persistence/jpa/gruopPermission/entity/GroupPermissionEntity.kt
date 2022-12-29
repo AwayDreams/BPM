@@ -1,6 +1,6 @@
 package com.ecmprojectbackend.infrastructure.persistence.jpa.gruopPermission.entity
 
-import com.ecmprojectbackend.infrastructure.persistence.jpa.activity.entity.ActivityEntity
+import com.ecmprojectbackend.infrastructure.persistence.jpa.activityType.entity.ActivityTypeEntity
 import com.ecmprojectbackend.infrastructure.persistence.jpa.user.entity.UserEntity
 import javax.persistence.*
 
@@ -19,9 +19,9 @@ data class GroupPermissionEntity (
         @JoinTable(
                 name = "activitygroup",
                 joinColumns = [JoinColumn(name = "grouppermission")],
-                inverseJoinColumns = [JoinColumn(name = "activity")]
+                inverseJoinColumns = [JoinColumn(name = "activitytype")]
         )
-        val activities: List<ActivityEntity>?,
+        val activities: List<ActivityTypeEntity>?,
         @ManyToMany
         @JoinTable(
                 name = "usergroup",

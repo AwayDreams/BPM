@@ -1,6 +1,9 @@
 package com.ecmprojectbackend.infrastructure.persistence.jpa.process.entity
 
+import com.ecmprojectbackend.domain.activityType.ActivityType
+import com.ecmprojectbackend.infrastructure.persistence.jpa.activityType.entity.ActivityTypeEntity
 import com.ecmprojectbackend.infrastructure.persistence.jpa.dataType.entity.DataTypeEntity
+import com.ecmprojectbackend.infrastructure.persistence.jpa.processType.entity.ProcessTypeEntity
 import javax.persistence.*
 
 @Entity
@@ -10,10 +13,9 @@ data class ProcessEntity (
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long?,
     @ManyToOne
-    @JoinColumn(name = "datatype")
-    val dataType: DataTypeEntity?,
-    @Column
-    val name: String,
-    @Column
-    val content: String
+    @JoinColumn(name = "processtype")
+    val processType: ProcessTypeEntity?,
+    @ManyToOne
+    @JoinColumn(name = "activitytype")
+    val activityType: ActivityTypeEntity?
         )

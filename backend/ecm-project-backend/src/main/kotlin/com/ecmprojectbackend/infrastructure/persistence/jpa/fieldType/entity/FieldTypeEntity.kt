@@ -18,4 +18,6 @@ data class FieldTypeEntity (
     val name: String,
     @Column
     val type: String
-        )
+        ){
+    constructor() : this(null, null, "", "")
+}

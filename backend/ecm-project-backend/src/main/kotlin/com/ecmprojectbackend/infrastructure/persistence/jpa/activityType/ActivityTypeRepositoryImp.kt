@@ -6,10 +6,18 @@ import org.springframework.stereotype.Repository
 
 @Repository
 class ActivityTypeRepositoryImp(
-    private val activityTypeMapperImp: ActivityTypeMapperImp,
+    private val activityTypeMapper: ActivityTypeMapper,
     private val activityTypePersistenceRepository: ActivityTypePersistenceRepository,
 ): ActivityTypeRepository {
     override fun save(activityType: ActivityType): ActivityType {
-        return activityTypeMapperImp.fromEntity( activityTypePersistenceRepository.save( activityTypeMapperImp.fromModel(activityType)))
+        return activityTypeMapper.fromEntity( activityTypePersistenceRepository.save( activityTypeMapper.fromModel(activityType)))
+    }
+
+    override fun getAll(): List<ActivityType> {
+        return activityTypePersistenceRepository.findAll().map { activityTypeMapper.fromEntity(it) }
+    }
+
+    override fun remove(activityType: ActivityType) {
+        return activityTypePersistenceRepository.delete( activityTypeMapper.fromModel(activityType))
     }
 }
