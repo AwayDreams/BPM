@@ -17,4 +17,6 @@ data class PageEntity (
     val name: String,
     @Column
     val content: String
-        )
+        ){
+    constructor() : this(null, null, "", "")
+}

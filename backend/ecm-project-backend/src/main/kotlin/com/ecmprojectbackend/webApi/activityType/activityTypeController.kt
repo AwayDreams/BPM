@@ -12,26 +12,28 @@ import org.springframework.web.bind.annotation.*
 class activityTypeController(
     private val activityTypeService: ActivityTypeService
     ) {
+
     @PutMapping(produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])
-    fun save(@RequestBody activityTypeRepresentation: ActivityTypeRepresentation): ActivityType {
-        return activityTypeService.save(ActivityType(
-            activityTypeRepresentation.id,
-            activityTypeRepresentation.name,
-            activityTypeRepresentation.type,
+    fun saveAll(@RequestBody activityTypeRepresentation: List<ActivityTypeRepresentation>): List<ActivityType> {
+        return activityTypeRepresentation.map {
+            activityTypeService.save(ActivityType(
+            it.id,
+            it.name,
+            it.type,
             Page(
-                activityTypeRepresentation.pageId,
+                it.pageId,
                 null,
                 "",
                 ""
             ),
             ProcessType(
-                activityTypeRepresentation.processId,
+                it.processId,
                 null,
                 "",
                 ""
             ),
             null
-            ))
+        ))  }
     }
 
     @GetMapping(produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])
