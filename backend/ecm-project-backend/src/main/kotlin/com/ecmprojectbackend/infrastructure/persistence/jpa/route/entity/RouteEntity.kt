@@ -2,13 +2,13 @@ package com.ecmprojectbackend.infrastructure.persistence.jpa.route.entity
 
 
 import com.ecmprojectbackend.infrastructure.persistence.jpa.activityType.entity.ActivityTypeEntity
+import com.fasterxml.jackson.annotation.JsonIgnore
 import javax.persistence.*
 
 @Entity
 @Table(name = "[route]")
 data class RouteEntity (
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: String?,
     @Column
     val name: String,
@@ -22,4 +22,6 @@ data class RouteEntity (
     @ManyToOne
     @JoinColumn(name = "next_activity")
     val nextActivity: ActivityTypeEntity?
-        )
+        ){
+    constructor() : this(null, "", "", "", null, null)
+}

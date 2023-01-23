@@ -6,5 +6,6 @@ import javax.xml.crypto.Data
 interface DataTypeService {
     fun save(dataType: DataType): DataType
     fun getAll(): List<DataType>
+    fun get(dataTypeId: Long): DataType
     fun remove(dataType: DataType)
 }

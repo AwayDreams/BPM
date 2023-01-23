@@ -6,4 +6,5 @@ interface ActivityTypeService {
     fun save(activityType: ActivityType): ActivityType
     fun getAll(): List<ActivityType>
     fun remove(activityType: ActivityType)
+    fun removeAll(processTypeId: Long)
 }

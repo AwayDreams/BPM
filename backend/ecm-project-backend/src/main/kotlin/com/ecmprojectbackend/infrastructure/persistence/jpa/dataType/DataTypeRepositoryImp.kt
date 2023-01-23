@@ -17,6 +17,10 @@ class DataTypeRepositoryImp(
         return dataTypePersistenceRepository.findAll().map { dataTypeMapper.fromEntity(it) }
     }
 
+    override fun get(dataTypeId: Long): DataType {
+        return  dataTypeMapper.fromEntity(dataTypePersistenceRepository.findById(dataTypeId).get())
+    }
+
     override fun remove(dataType: DataType) {
         return dataTypePersistenceRepository.delete(dataTypeMapper.fromModel(dataType))
     }

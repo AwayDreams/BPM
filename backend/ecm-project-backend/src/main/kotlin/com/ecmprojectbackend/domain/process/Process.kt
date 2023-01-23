@@ -8,4 +8,6 @@ data class Process (
     val id: Long?,
     val processType: ProcessType?,
     val activityType: ActivityType?
-        )
+        ){
+    constructor(): this(null, null, null)
+}

@@ -17,6 +17,10 @@ class PageRepositoryImp(
         return pagePersistenceRepository.findAll().map { pageMapper.fromEntity(it) }
     }
 
+    override fun get(pageId: Long): Page {
+        return pageMapper.fromEntity(pagePersistenceRepository.findById(pageId).get())
+    }
+
     override fun remove(page: Page) {
         pagePersistenceRepository.delete(pageMapper.fromModel(page))
     }

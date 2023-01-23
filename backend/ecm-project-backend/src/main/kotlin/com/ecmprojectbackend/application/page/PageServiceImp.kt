@@ -18,6 +18,10 @@ class PageServiceImp(
         return pageRepository.getAll()
     }
 
+    override fun get(pageId: Long): Page {
+        return pageRepository.get(pageId)
+    }
+
     override fun remove(page: Page) {
         pageRepository.remove(page)
     }

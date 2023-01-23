@@ -22,4 +22,8 @@ class ActivityTypeServiceImp(
     override fun remove(activityType: ActivityType) {
         return activityTypeRepository.remove(activityType)
     }
+
+    override fun removeAll(processTypeId: Long) {
+        return activityTypeRepository.removeAll(processTypeId)
+    }
 }

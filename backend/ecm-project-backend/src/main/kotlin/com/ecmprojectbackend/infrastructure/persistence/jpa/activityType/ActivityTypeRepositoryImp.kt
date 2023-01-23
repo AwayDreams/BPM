@@ -2,6 +2,7 @@ package com.ecmprojectbackend.infrastructure.persistence.jpa.activityType
 
 import com.ecmprojectbackend.domain.activityType.ActivityType
 import com.ecmprojectbackend.domain.activityType.ActivityTypeRepository
+import com.ecmprojectbackend.infrastructure.persistence.jpa.processType.entity.ProcessTypeEntity
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -19,5 +20,9 @@ class ActivityTypeRepositoryImp(
 
     override fun remove(activityType: ActivityType) {
         return activityTypePersistenceRepository.delete( activityTypeMapper.fromModel(activityType))
+    }
+
+    override fun removeAll(processTypeId: Long) {
+        return activityTypePersistenceRepository.deleteAllByProcessTypeId(processTypeId)
     }
 }

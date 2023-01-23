@@ -17,9 +17,14 @@ class dataTypeController(
         return dataTypeService.save(dataType)
     }
 
-    @GetMapping(produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])
-    fun get(): List<DataType> {
+    @GetMapping( produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])
+    fun getAll(): List<DataType> {
         return dataTypeService.getAll()
+    }
+
+    @GetMapping(path = ["/{dataTypeId}"], produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])
+    fun get(@PathVariable dataTypeId: Long): DataType {
+       return dataTypeService.get(dataTypeId)
     }
 
     @DeleteMapping(produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])

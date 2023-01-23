@@ -5,5 +5,6 @@ import com.ecmprojectbackend.domain.dataType.DataType
 interface PageService {
     fun save(page: Page): Page
     fun getAll(): List<Page>
+    fun get(pageId: Long): Page
     fun remove(page: Page)
 }

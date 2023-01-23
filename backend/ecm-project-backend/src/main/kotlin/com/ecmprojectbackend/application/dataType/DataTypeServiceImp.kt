@@ -17,6 +17,10 @@ class DataTypeServiceImp(
         return dataTypeRepository.getAll()
     }
 
+    override fun get(dataTypeId: Long): DataType {
+        return dataTypeRepository.get(dataTypeId)
+    }
+
     override fun remove(dataType: DataType) {
         dataTypeRepository.remove(dataType)
     }

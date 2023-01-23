@@ -28,8 +28,12 @@ class PageController(
     }
 
     @GetMapping(produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])
-    fun get(): List<Page> {
+    fun getAll(): List<Page> {
         return pageService.getAll()
+    }
+    @GetMapping(path = ["/{pageId}"], produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])
+    fun get(@PathVariable pageId: Long): Page {
+        return pageService.get(pageId)
     }
 
     @DeleteMapping(produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*
 class activityTypeController(
     private val activityTypeService: ActivityTypeService
     ) {
-
     @PutMapping(produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])
     fun saveAll(@RequestBody activityTypeRepresentation: List<ActivityTypeRepresentation>): List<ActivityType> {
         return activityTypeRepresentation.map {
@@ -27,12 +26,15 @@ class activityTypeController(
                 ""
             ),
             ProcessType(
-                it.processId,
+                it.processTypeId,
+                0,
                 null,
                 "",
-                ""
+                "",
+                null
             ),
-            null
+            null,
+                null
         ))  }
     }
 
@@ -43,7 +45,7 @@ class activityTypeController(
 
     @DeleteMapping(produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])
     fun delete(@RequestParam activityTypeId: String) {
-        activityTypeService.remove(ActivityType(activityTypeId, "", "", null, null, null))
+        activityTypeService.remove(ActivityType(activityTypeId, "", "", null, null, null, null))
     }
 
 }

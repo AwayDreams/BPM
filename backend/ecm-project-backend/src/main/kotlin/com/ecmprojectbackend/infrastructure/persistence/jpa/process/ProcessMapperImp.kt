@@ -1,12 +1,11 @@
 package com.ecmprojectbackend.infrastructure.persistence.jpa.process
 
-import com.ecmprojectbackend.domain.activityType.ActivityType
-import com.ecmprojectbackend.infrastructure.persistence.jpa.dataType.DataTypeMapper
 import com.ecmprojectbackend.infrastructure.persistence.jpa.process.entity.ProcessEntity
-import com.ecmprojectbackend.domain.process.Process
 import com.ecmprojectbackend.infrastructure.persistence.jpa.activityType.ActivityTypeMapper
 import com.ecmprojectbackend.infrastructure.persistence.jpa.processType.ProcessTypeMapper
 import org.springframework.stereotype.Service
+import com.ecmprojectbackend.domain.process.Process
+import com.ecmprojectbackend.domain.processType.ProcessType
 
 @Service
 class ProcessMapperImp(

@@ -18,4 +18,6 @@ data class ProcessEntity (
     @ManyToOne
     @JoinColumn(name = "activitytype")
     val activityType: ActivityTypeEntity?
-        )
+        ){
+    constructor() : this(null, null, null)
+}

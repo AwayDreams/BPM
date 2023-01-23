@@ -31,10 +31,13 @@ class RouteController(
                 ),
                 ProcessType(
                     null,
+                    0,
                     null,
                     "",
                     "",
+                    null,
                 ),
+                null,
                 null
             ),
             ActivityType(
@@ -48,10 +51,13 @@ class RouteController(
                 ),
                 ProcessType(
                     null,
+                    0,
                     null,
                     "",
                     "",
+                    null
                 ),
+                null,
                 null
             )
         ))

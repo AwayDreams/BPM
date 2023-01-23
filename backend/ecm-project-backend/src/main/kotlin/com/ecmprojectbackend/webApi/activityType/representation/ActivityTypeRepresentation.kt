@@ -5,7 +5,7 @@ class ActivityTypeRepresentation (
     val name: String,
     val type: String,
     val pageId: Long?,
-    val processId: Long?,
+    val processTypeId: Long?,
     ){
     constructor() : this(null, "", "", null, null)
 }

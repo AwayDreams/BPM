@@ -1,7 +1,6 @@
 package com.ecmprojectbackend.infrastructure.persistence.jpa.field
 
 import com.ecmprojectbackend.domain.field.Field
-import com.ecmprojectbackend.infrastructure.persistence.jpa.activityType.ActivityTypeMapper
 import com.ecmprojectbackend.infrastructure.persistence.jpa.field.entity.FieldEntity
 import com.ecmprojectbackend.infrastructure.persistence.jpa.fieldType.FieldTypeMapper
 import com.ecmprojectbackend.infrastructure.persistence.jpa.process.ProcessMapper
@@ -15,8 +14,8 @@ class FieldMapperImp(
     override fun fromModel(model: Field): FieldEntity {
         return FieldEntity(
             model.id,
-            model.fieldType?.let { fieldTypeMapper.fromModel(model.fieldType) },
-            model.process?.let { processMapper.fromModel(model.process) },
+            model.fieldType?.let { fieldTypeMapper.fromModel(it) },
+            model.process?.let { processMapper.fromModel(it) },
             model.value
         )
     }
@@ -24,8 +23,8 @@ class FieldMapperImp(
     override fun fromEntity(entity: FieldEntity): Field {
         return Field(
             entity.id,
-            entity.fieldType?.let { fieldTypeMapper.fromEntity(entity.fieldType) },
-            entity.process?.let { processMapper.fromEntity(entity.process) },
+            entity.fieldType?.let { fieldTypeMapper.fromEntity(it) },
+            entity.process?.let { processMapper.fromEntity(it) },
             entity.value
         )
     }
