@@ -1,14 +1,12 @@
 package com.ecmprojectbackend.infrastructure.persistence.jpa.field.entity
 
-import com.ecmprojectbackend.infrastructure.persistence.jpa.activityType.entity.ActivityTypeEntity
 import com.ecmprojectbackend.infrastructure.persistence.jpa.fieldType.entity.FieldTypeEntity
 import com.ecmprojectbackend.infrastructure.persistence.jpa.process.entity.ProcessEntity
 import javax.persistence.*
-import kotlin.jvm.Transient
 
 @Entity
 @Table(name = "[field]")
-data class FieldEntity(
+data class SimpleFieldEntity (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -16,9 +14,10 @@ data class FieldEntity(
     @ManyToOne
     @JoinColumn(name = "[fieldtype]")
     val fieldType: FieldTypeEntity?,
-    @ManyToOne
-    @JoinColumn(name = "process")
-    val process: ProcessEntity?,
+    @Column(name = "process")
+    val processId: Long?,
     @Column
     val value: String,
-        )
+){
+    constructor(): this(null, null, null, "")
+}

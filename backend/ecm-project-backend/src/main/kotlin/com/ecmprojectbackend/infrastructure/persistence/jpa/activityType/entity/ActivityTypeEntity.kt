@@ -28,7 +28,6 @@ data class ActivityTypeEntity (
     val processTypeId: Long?,
     @OneToMany
     @JoinColumn(name = "activity")
-    @Transient
     val routes: List<SimpleRouteEntity>?,
     @Transient
     @ManyToMany(mappedBy = "activities", cascade = [CascadeType.ALL])

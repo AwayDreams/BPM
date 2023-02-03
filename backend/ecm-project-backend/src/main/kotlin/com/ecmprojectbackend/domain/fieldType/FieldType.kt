@@ -7,4 +7,6 @@ data class FieldType (
     val dataType: DataType?,
     val name: String,
     val type: String
-        )
+        ){
+    constructor() : this(null, null, "", "")
+}

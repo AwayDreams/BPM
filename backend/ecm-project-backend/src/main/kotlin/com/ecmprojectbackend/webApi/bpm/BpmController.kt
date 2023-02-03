@@ -4,7 +4,9 @@ import com.ecmprojectbackend.domain.activityType.ActivityType
 import com.ecmprojectbackend.domain.bpm.Bpm
 import com.ecmprojectbackend.domain.bpm.BpmService
 import com.ecmprojectbackend.domain.dataType.DataType
+import com.ecmprojectbackend.domain.groupPermission.GroupPermission
 import com.ecmprojectbackend.domain.page.Page
+import com.ecmprojectbackend.domain.process.Process
 import com.ecmprojectbackend.domain.processType.ProcessType
 import com.ecmprojectbackend.domain.processType.ProcessTypeService
 import com.ecmprojectbackend.domain.route.Route
@@ -70,6 +72,7 @@ class BpmController(
                       it.name,
                       it.nameKey,
                       it.content,
+                      if(it.activity == null) null else
                       ActivityType(
                           it.activity,
                           "",
@@ -79,18 +82,24 @@ class BpmController(
                           null,
                           null
                       ),
-                      ActivityType(
-                          it.nextActivity,
-                          "",
-                          "",
-                          null,
-                          null,
-                          null,
-                          null
-                      )
+                      if(it.nextActivity == null) null else
+                          ActivityType(
+                              it.nextActivity,
+                              "",
+                              "",
+                              null,
+                              null,
+                              null,
+                              null
+                          )
                   )
               }
             )
         )
+    }
+
+    @GetMapping(path=["/iniciar/{processTypeId}"],produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])
+    fun iniciarProcesso(@PathVariable processTypeId: Long): Process {
+        return bpmService.iniciarProcesso(processTypeId)
     }
 }
