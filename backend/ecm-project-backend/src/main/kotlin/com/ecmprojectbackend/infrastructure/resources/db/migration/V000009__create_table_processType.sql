@@ -1,4 +1,4 @@
-create table if not exists processType (
+create table if not exists processtype (
     id              INT     NOT NULL    AUTO_INCREMENT     primary key,
     version         INT     NOT NULL,
     datatype        INT     NOT NULL,

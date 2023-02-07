@@ -54,7 +54,7 @@ tasks {
 
 flyway {
 	ignorePendingMigrations = true
-	url = "jdbc:mysql://localhost:3306/ecm?useTimezone=true&serverTimezone=UTC&useSSL=false"
+	url = "jdbc:mysql://34.95.234.208:3306/ecm?useTimezone=true&serverTimezone=UTC&useSSL=false"
 	user = "dev1"
 	password = "dev1"
 	locations = arrayOf("filesystem:src/main/kotlin/com/ecmprojectbackend/infrastructure/resources/db/migration")

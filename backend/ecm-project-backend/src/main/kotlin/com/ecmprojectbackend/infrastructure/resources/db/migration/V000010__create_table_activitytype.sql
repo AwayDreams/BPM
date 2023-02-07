@@ -5,5 +5,5 @@ create table if not exists activitytype (
     page        INT     NULL,
     processType     INT     NULL,
     FOREIGN KEY (page) REFERENCES page(id) ON DELETE CASCADE,
-    FOREIGN KEY (processType) REFERENCES processType(id) ON DELETE CASCADE
+    FOREIGN KEY (processType) REFERENCES processtype(id) ON DELETE CASCADE
 );

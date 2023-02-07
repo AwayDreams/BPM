@@ -3,6 +3,6 @@ create table if not exists field (
     fieldtype       INT     NULL,
     process         INT     NULL,
     value           TEXT    NULL,
-    FOREIGN KEY (fieldtype) REFERENCES fieldType(id) ON DELETE CASCADE,
+    FOREIGN KEY (fieldtype) REFERENCES fieldtype(id) ON DELETE CASCADE,
     FOREIGN KEY (process)  REFERENCES process(id) ON DELETE CASCADE
 );

@@ -5,6 +5,6 @@ create table if not exists route (
     content         TEXT                NULL,
     activity        VARCHAR(250)        NULL,
     next_activity   VARCHAR(250)        NULL,
-    FOREIGN KEY (activity) REFERENCES activityType(id) ON DELETE CASCADE,
-    FOREIGN KEY (next_activity) REFERENCES activityType(id) ON DELETE CASCADE
+    FOREIGN KEY (activity) REFERENCES activitytype(id) ON DELETE CASCADE,
+    FOREIGN KEY (next_activity) REFERENCES activitytype(id) ON DELETE CASCADE
 );
