@@ -21,6 +21,10 @@ class PageRepositoryImp(
         return pageMapper.fromEntity(pagePersistenceRepository.findById(pageId).get())
     }
 
+    override fun getByDataTypeId(dataTypeId: Long): List<Page> {
+        return pagePersistenceRepository.findByDataTypeId(dataTypeId).map { pageMapper.fromEntity(it) }
+    }
+
     override fun remove(page: Page) {
         pagePersistenceRepository.delete(pageMapper.fromModel(page))
     }

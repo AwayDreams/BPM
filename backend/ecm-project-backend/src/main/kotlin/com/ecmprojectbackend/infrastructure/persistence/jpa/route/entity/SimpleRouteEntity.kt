@@ -19,9 +19,8 @@ data class SimpleRouteEntity (
     val content: String,
     @Column(name = "activity")
     val activityId: String?,
-    @ManyToOne
-    @JoinColumn(name = "next_activity")
-    val nextActivity: ActivityTypeEntity?
+    @Column(name = "next_activity")
+    val nextActivityId: String?
         ){
     constructor() : this(null, "", "", "", null, null)
 }

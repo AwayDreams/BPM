@@ -21,4 +21,6 @@ data class FieldEntity(
     val process: ProcessEntity?,
     @Column
     val value: String,
-        )
+        ){
+    constructor() : this(null, null, null, "")
+}

@@ -21,7 +21,7 @@ class SimpleRouteMapperImp: SimpleRouteMapper {
             model.nameKey,
             model.content,
             model.activity?.id,
-            model.nextActivity?.let { activityTypeMapper.fromModel(it) }
+            model.nextActivity?.id
         )
     }
 
@@ -40,7 +40,15 @@ class SimpleRouteMapperImp: SimpleRouteMapper {
                 null,
                 null
             ),
-            entity.nextActivity?.let { activityTypeMapper.fromEntity(it) }
+            ActivityType(
+                entity.nextActivityId,
+                "",
+                "",
+                null,
+                null,
+                null,
+                null
+            )
         )
     }
 }

@@ -16,27 +16,8 @@ class FieldController(
 ) {
 
     @PutMapping(produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])
-    fun saveAll(@RequestBody fields: List<FieldRepresentation>): List<Field> {
-        return fieldService.saveAll(
-            fields.map {
-                Field(
-                    it.id,
-                    FieldType(
-                        it.fieldTypeId,
-                        null,
-                        "",
-                        ""
-                    ),
-                    Process(
-                        it.processId,
-                        null,
-                        null,
-                        null
-                    ),
-                    it.value,
-                )
-            }
-        )
+    fun saveAll(@RequestBody fields: List<Field>): List<Field> {
+        return fieldService.saveAll(fields)
     }
 
     @GetMapping(path = ["/{processId}"], produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])

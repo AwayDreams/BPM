@@ -36,6 +36,11 @@ class PageController(
         return pageService.get(pageId)
     }
 
+    @GetMapping(path = ["/datatype/{dataTypeId}"], produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])
+    fun getByDataTypeId(@PathVariable dataTypeId: Long): List<Page> {
+        return pageService.getByDataTypeId(dataTypeId)
+    }
+
     @DeleteMapping(produces = [org.springframework.http.MediaType.APPLICATION_JSON_VALUE])
     fun delete(@RequestParam pageId: Long) {
         pageService.remove(Page(

@@ -8,4 +8,6 @@ data class Field(
     val fieldType: FieldType?,
     val process: Process?,
     val value: String
-    )
+    ){
+    constructor() : this(null, null, null, "")
+}

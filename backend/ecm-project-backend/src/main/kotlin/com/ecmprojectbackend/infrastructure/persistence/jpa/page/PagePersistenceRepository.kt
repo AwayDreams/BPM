@@ -5,4 +5,5 @@ import com.ecmprojectbackend.infrastructure.persistence.jpa.user.entity.UserEnti
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface PagePersistenceRepository: JpaRepository<PageEntity, Long> {
+    fun findByDataTypeId(dataTypeId: Long): List<PageEntity>
 }

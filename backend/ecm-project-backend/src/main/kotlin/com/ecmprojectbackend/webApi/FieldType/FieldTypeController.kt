@@ -22,8 +22,8 @@ class FieldTypeController(
         return fieldTypeService.get(DataType(dataTypeId, null))
     }
 
-    @DeleteMapping
-    fun remove(@RequestParam fieldTypeId: Long){
+    @DeleteMapping(path = ["/{fieldTypeId}"])
+    fun remove(@PathVariable fieldTypeId: Long){
         fieldTypeService.remove(FieldType(fieldTypeId, null, "", ""))
     }
 }

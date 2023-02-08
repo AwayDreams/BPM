@@ -22,6 +22,10 @@ class PageServiceImp(
         return pageRepository.get(pageId)
     }
 
+    override fun getByDataTypeId(dataTypeId: Long): List<Page> {
+        return pageRepository.getByDataTypeId(dataTypeId)
+    }
+
     override fun remove(page: Page) {
         pageRepository.remove(page)
     }
