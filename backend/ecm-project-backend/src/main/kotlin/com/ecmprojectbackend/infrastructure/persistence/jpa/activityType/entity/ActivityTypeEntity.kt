@@ -2,11 +2,7 @@ package com.ecmprojectbackend.infrastructure.persistence.jpa.activityType.entity
 
 import com.ecmprojectbackend.infrastructure.persistence.jpa.gruopPermission.entity.GroupPermissionEntity
 import com.ecmprojectbackend.infrastructure.persistence.jpa.page.entity.PageEntity
-import com.ecmprojectbackend.infrastructure.persistence.jpa.processType.entity.ProcessTypeEntity
-import com.ecmprojectbackend.infrastructure.persistence.jpa.route.entity.RouteEntity
 import com.ecmprojectbackend.infrastructure.persistence.jpa.route.entity.SimpleRouteEntity
-import com.fasterxml.jackson.annotation.JsonIgnore
-import com.fasterxml.jackson.annotation.JsonManagedReference
 import lombok.NoArgsConstructor
 import javax.persistence.*
 
@@ -33,5 +29,4 @@ data class ActivityTypeEntity (
     @ManyToMany(mappedBy = "activities", cascade = [CascadeType.ALL])
     val activityGroupPermissions: List<GroupPermissionEntity>?
         ){
-    constructor() : this(null, "", "", null, null, null, null)
 }

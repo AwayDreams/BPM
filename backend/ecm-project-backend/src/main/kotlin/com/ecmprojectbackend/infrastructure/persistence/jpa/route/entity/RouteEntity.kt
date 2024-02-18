@@ -2,11 +2,12 @@ package com.ecmprojectbackend.infrastructure.persistence.jpa.route.entity
 
 
 import com.ecmprojectbackend.infrastructure.persistence.jpa.activityType.entity.ActivityTypeEntity
-import com.fasterxml.jackson.annotation.JsonIgnore
+import lombok.NoArgsConstructor
 import javax.persistence.*
 
 @Entity
 @Table(name = "[route]")
+@NoArgsConstructor
 data class RouteEntity (
     @Id
     val id: String?,
@@ -23,5 +24,4 @@ data class RouteEntity (
     @JoinColumn(name = "next_activity")
     val nextActivity: ActivityTypeEntity?
         ){
-    constructor() : this(null, "", "", "", null, null)
 }

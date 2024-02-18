@@ -1,13 +1,14 @@
 package com.ecmprojectbackend.infrastructure.persistence.jpa.field.entity
 
-import com.ecmprojectbackend.infrastructure.persistence.jpa.activityType.entity.ActivityTypeEntity
 import com.ecmprojectbackend.infrastructure.persistence.jpa.fieldType.entity.FieldTypeEntity
 import com.ecmprojectbackend.infrastructure.persistence.jpa.process.entity.ProcessEntity
+import lombok.NoArgsConstructor
 import javax.persistence.*
-import kotlin.jvm.Transient
+
 
 @Entity
 @Table(name = "[field]")
+@NoArgsConstructor
 data class FieldEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,5 +23,4 @@ data class FieldEntity(
     @Column
     val value: String,
         ){
-    constructor() : this(null, null, null, "")
 }

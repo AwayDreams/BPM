@@ -1,11 +1,12 @@
 package com.ecmprojectbackend.infrastructure.persistence.jpa.page.entity
 
-import com.ecmprojectbackend.domain.dataType.DataType
 import com.ecmprojectbackend.infrastructure.persistence.jpa.dataType.entity.DataTypeEntity
+import lombok.NoArgsConstructor
 import javax.persistence.*
 
 @Entity
 @Table(name = "[page]")
+@NoArgsConstructor
 data class PageEntity (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,5 +19,4 @@ data class PageEntity (
     @Column
     val content: String
         ){
-    constructor() : this(null, null, "", "")
 }

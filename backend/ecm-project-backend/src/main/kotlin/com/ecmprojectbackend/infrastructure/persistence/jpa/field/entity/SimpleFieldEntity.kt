@@ -1,11 +1,12 @@
 package com.ecmprojectbackend.infrastructure.persistence.jpa.field.entity
 
 import com.ecmprojectbackend.infrastructure.persistence.jpa.fieldType.entity.FieldTypeEntity
-import com.ecmprojectbackend.infrastructure.persistence.jpa.process.entity.ProcessEntity
+import lombok.NoArgsConstructor
 import javax.persistence.*
 
 @Entity
 @Table(name = "[field]")
+@NoArgsConstructor
 data class SimpleFieldEntity (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,5 +20,4 @@ data class SimpleFieldEntity (
     @Column
     val value: String,
 ){
-    constructor(): this(null, null, null, "")
 }

@@ -2,10 +2,12 @@ package com.ecmprojectbackend.infrastructure.persistence.jpa.processType.entity
 
 import com.ecmprojectbackend.infrastructure.persistence.jpa.activityType.entity.ActivityTypeEntity
 import com.ecmprojectbackend.infrastructure.persistence.jpa.dataType.entity.DataTypeEntity
+import lombok.NoArgsConstructor
 import javax.persistence.*
 
 @Entity
 @Table(name = "[processtype]")
+@NoArgsConstructor
 data class ProcessTypeEntity (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,5 +25,4 @@ data class ProcessTypeEntity (
     @JoinColumn(name = "first_activity")
     val firstActivity: ActivityTypeEntity?
         ){
-    constructor() : this(null, 0, null, "", "", null)
 }

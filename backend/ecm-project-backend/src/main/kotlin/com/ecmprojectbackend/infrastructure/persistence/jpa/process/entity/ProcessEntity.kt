@@ -1,13 +1,14 @@
 package com.ecmprojectbackend.infrastructure.persistence.jpa.process.entity
 
 import com.ecmprojectbackend.infrastructure.persistence.jpa.activityType.entity.ActivityTypeEntity
-import com.ecmprojectbackend.infrastructure.persistence.jpa.field.entity.FieldEntity
 import com.ecmprojectbackend.infrastructure.persistence.jpa.field.entity.SimpleFieldEntity
 import com.ecmprojectbackend.infrastructure.persistence.jpa.processType.entity.ProcessTypeEntity
+import lombok.NoArgsConstructor
 import javax.persistence.*
 
 @Entity
 @Table(name = "[process]")
+@NoArgsConstructor
 data class ProcessEntity (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,5 +23,4 @@ data class ProcessEntity (
     @JoinColumn(name = "process")
     val fields: List<SimpleFieldEntity>?,
         ){
-    constructor() : this(null, null, null, null)
 }

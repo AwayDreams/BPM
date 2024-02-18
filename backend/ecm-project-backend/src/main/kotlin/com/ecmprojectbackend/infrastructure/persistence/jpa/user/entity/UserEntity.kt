@@ -1,10 +1,12 @@
 package com.ecmprojectbackend.infrastructure.persistence.jpa.user.entity
 
 import com.ecmprojectbackend.infrastructure.persistence.jpa.gruopPermission.entity.GroupPermissionEntity
+import lombok.NoArgsConstructor
 import javax.persistence.*
 
 @Entity
 @Table(name = "[user]")
+@NoArgsConstructor
 data class UserEntity (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
